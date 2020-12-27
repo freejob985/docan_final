@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a type="button" data-toggle="modal" data-target="#whatsapp"
-                                            class="btn btn-styled btn-base-1" target="_blank" >{{ translate('Whats App')}}</a>
+                                            class="btn btn-styled btn-base-1" target="_blank">{{ translate('Whats App')}}</a>
                                     </div>
 
                                     <div class="col-md-4" style="

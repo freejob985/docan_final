@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a type="button" data-toggle="modal" data-target="#whatsapp"
-                                            class="btn btn-styled btn-base-1" target="_blank" >{{ translate('Whats App')}}</a>
+                                            class="btn btn-styled btn-base-1">{{ translate('Whats App')}}</a>
                                     </div>
 
                                     <div class="col-md-4" style="
@@ -113,21 +113,21 @@
                     <form class="form-default" role="form" action="{{ route('sendcartbyemail') }}" method="POST">
                         @csrf
 
-
+ 
                         <div class="form-group">
                             <input type="email" name="email" class="form-control h-auto form-control-lg"
                                 placeholder="{{ translate('Friend Email')}}">
                             <input type="hidden" name="url" class="form-control h-auto form-control-lg"
                                 value="{{ route('getUserSendCart', $sendorder->token) }}">
                         </div>
-
+ 
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control h-auto form-control-lg" placeholder="Patient name">
                                 <input type="text" name="pas" class="form-control h-auto form-control-lg" placeholder="Mobil">
                                 <input type="email" name="email" class="form-control h-auto form-control-lg" placeholder="{{ translate('Friend Email')}}">
                                 <input type="hidden" name="url" class="form-control h-auto form-control-lg" value="{{ route('getUserSendCart', $sendorder->token) }}">
                             </div>
-
+ 
 
                         <div class="row align-items-center">
 
@@ -175,7 +175,7 @@
                                 <input type="text" name="number" class="form-control h-auto form-control-lg" placeholder="Phone Number whatsapp  With +xx">
                                 <input type="hidden" name="url" class="form-control h-auto form-control-lg" value="{{ route('getUserSendCart', $sendorder->token) }}">
                             </div>
-
+ 
 
                         <div class="row align-items-center">
 
