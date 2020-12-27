@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\GeneralSetting;
 use ImageOptimizer;
 use App\Http\Controllers\BusinessSettingsController;
-use Session;
 
 class GeneralSettingController extends Controller
 {
@@ -17,7 +16,7 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
-        $generalsetting = GeneralSetting::where('lang',Session::get('locale'))->first();
+        $generalsetting = GeneralSetting::where('lang',Session::get('locale'))-.first();
         return view("general_settings.index", compact("generalsetting"));
     }
 

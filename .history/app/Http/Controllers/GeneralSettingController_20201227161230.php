@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\GeneralSetting;
 use ImageOptimizer;
 use App\Http\Controllers\BusinessSettingsController;
-use Session;
 
 class GeneralSettingController extends Controller
 {
