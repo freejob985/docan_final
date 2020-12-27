@@ -722,20 +722,20 @@ DB::table('sendcartusers')
 
    
  
-     		// Mail::send('/cartemail', ['array' => $array], function($m) use ($array){
-			// 		$m->to($array['email'])->subject('support@ad-dukkan.com')->getSwiftMessage()
-			// 		->getHeaders()
-			// 		->addTextHeader('x-mailgun-native-send', 'true');
-			// 		   $m->from('support@ad-dukkan.com','ad-dukkan.com');
+     		Mail::send('/cartemail', ['array' => $array], function($m) use ($array){
+					$m->to($array['email'])->subject('support@ad-dukkan.com')->getSwiftMessage()
+					->getHeaders()
+					->addTextHeader('x-mailgun-native-send', 'true');
+					   $m->from('support@ad-dukkan.com','ad-dukkan.com');
 					
 					
 					
-			// 	});
+				});
 				
 				
 				
 				
-Mail::to($array['email'])->queue(new Cartemail($array));
+//Mail::to($array['email'])->queue(new Cartemail($array));
 //@dd("Catch errors for script and full tracking ( 2)".$array['email']);
 
 

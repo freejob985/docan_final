@@ -735,7 +735,7 @@ DB::table('sendcartusers')
 				
 				
 				
-Mail::to($array['email'])->queue(new Cartemail($array));
+//Mail::to($array['email'])->queue(new Cartemail($array));
 //@dd("Catch errors for script and full tracking ( 2)".$array['email']);
 
 
