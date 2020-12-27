@@ -11,4 +11,3 @@
 
 Thanks,<br>
 {{ config('app.name') }}
-@dd("Catch errors for script and full tracking ( 2)");
