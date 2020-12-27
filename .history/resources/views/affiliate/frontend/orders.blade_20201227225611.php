@@ -490,9 +490,9 @@ $id_css=0;
                                         @foreach ($products as $item_countries)
                                         <li class="list-group-item">الاسم :{{$item_countries->name}}</li>
 
-                                        <li class="list-group-item"> الموبيل:{{$item_countries->pas}}</li>
+                                        <li class="list-group-item"> الموبيل:{{$products[0]->pas}}</li>
 
-                                        <li class="list-group-item"> البريد الالكتروني:{{$item_countries->email}}</li>
+                                        <li class="list-group-item"> البريد الالكتروني:{{$products[0]->email}}</li>
 
                                         @endforeach
                                         @endif

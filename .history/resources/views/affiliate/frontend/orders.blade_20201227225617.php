@@ -492,7 +492,7 @@ $id_css=0;
 
                                         <li class="list-group-item"> الموبيل:{{$item_countries->pas}}</li>
 
-                                        <li class="list-group-item"> البريد الالكتروني:{{$item_countries->email}}</li>
+                                        <li class="list-group-item"> البريد الالكتروني:{{$products[0]->email}}</li>
 
                                         @endforeach
                                         @endif

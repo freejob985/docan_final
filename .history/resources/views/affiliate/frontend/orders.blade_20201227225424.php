@@ -486,18 +486,13 @@ $id_css=0;
                                     @endphp
 
                                     <ul class="list-group">
-                                        @if (count($products)>0)
-                                        @foreach ($products as $item_countries)
-                                        <li class="list-group-item">الاسم :{{$item_countries->name}}</li>
 
-                                        <li class="list-group-item"> الموبيل:{{$item_countries->pas}}</li>
+                                        <li class="list-group-item">الاسم :{{$products[0]->name}}</li>
 
-                                        <li class="list-group-item"> البريد الالكتروني:{{$item_countries->email}}</li>
+                                        <li class="list-group-item"> الموبيل:{{$products[0]->pas}}</li>
 
-                                        @endforeach
-                                        @endif
-
-
+                                        <li class="list-group-item"> البريد الالكتروني:{{$products[0]->email}}</li>
+                                        
 
                                         <li class="list-group-item">
 

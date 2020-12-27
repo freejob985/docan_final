@@ -13,6 +13,7 @@ $id_css=0;
 
 
 <style>
+
     .buttons-html5 {
         border-color: #2ecc71;
         background: #2ecc71;
@@ -22,7 +23,6 @@ $id_css=0;
         font-size: 14px;
         padding: 1px 10px;
     }
-
     .label {
         border-radius: 13px;
         padding: 0px 10px;
@@ -50,7 +50,6 @@ $id_css=0;
         margin: 5px 10px;
         display: initial;
     }
-
     .sub-ul li {
         display: ruby-text;
 
@@ -60,6 +59,7 @@ $id_css=0;
         border: navajowhite;
         margin-bottom: 4%;
     }
+
 </style>
 
 @section('content')
@@ -117,6 +117,7 @@ $id_css=0;
                                         <li><a href="{{ route('dashboard') }}">{{translate('Dashboard')}}</a></li>
 
                                         <li class="active"><a
+
                                                 href="{{ route('affiliate.user.index') }}">{{translate('Affiliate System')}}</a>
 
                                         </li>
@@ -144,6 +145,7 @@ $id_css=0;
                                 <i class="fa fa-dollar"></i>
 
                                 <span
+
                                     class="d-block title heading-3 strong-400">{{ single_price(Auth::user()->affiliate_user->balance) }}</span>
 
                                 <span class="d-block sub-title">{{ translate('Affiliate Balance') }}</span>
@@ -161,6 +163,7 @@ $id_css=0;
                                     <i class="la la-cog"></i>
 
                                     <span
+
                                         class="d-block title heading-6 strong-400 c-base-1">{{ translate('Configure Payout') }}</span>
 
                                 </div>
@@ -172,11 +175,13 @@ $id_css=0;
                         <div class="col-md-4">
 
                             <div class="dashboard-widget text-center plus-widget mt-4 c-pointer"
+
                                 onclick="show_affiliate_withdraw_modal()">
 
                                 <i class="la la-plus"></i>
 
                                 <span
+
                                     class="d-block title heading-6 strong-400 c-base-1">{{  translate('Affiliate Withdraw Request') }}</span>
 
                             </div>
@@ -220,17 +225,21 @@ $id_css=0;
                                     <div class="form-group">
 
                                         <textarea id="referral_code_url" class="form-control" readonly
+
                                             type="text">{{$referral_code_url}}</textarea>
 
                                     </div>
 
                                     <button type=button id="ref-cpurl-btn" class="btn btn-base-1"
+
                                         data-attrcpy="{{translate('Copied')}}"
+
                                         onclick="copyToClipboard('url')">{{translate('Copy Url')}}</button>
 
 
 
                                     <a href="{{ route('affiliate.myaffilateorders') }}"
+
                                         class="btn btn-base-1">{{translate('My Affilate Orders')}}</a>
 
                                 </div>
@@ -262,7 +271,7 @@ $id_css=0;
                     <div class="card no-border mt-5">
 
 
-                        <a class="btn btn-info" href="{{url('data-pdf')}}">Export To PDF</a>
+                    	<a class="btn btn-info" href="{{url('data-pdf')}}">Export To PDF</a>
 
 
                         <div class="card-body cc">
@@ -291,15 +300,13 @@ $id_css=0;
 
                                     <tr>
 
-                                        <th
-                                            style="font-size: 398%;vertical-align: revert;text-align: center;background: #17a2b8;color: white;">
-                                            {{ $order->id}}</th>
+                                        <th style="font-size: 398%;vertical-align: revert;text-align: center;background: #17a2b8;color: white;">{{ $order->id}}</th>
 
                                         <th>
 
-                                            @php $reals = App\Order::where('token', '=',$order->token)->latest()->get();
+     @php $reals = App\Order::where('token', '=',$order->token)->latest()->get();
 
-                                            $id_css++; @endphp
+   $id_css++; @endphp
 
                                             @foreach ($reals as $real)
 
@@ -322,6 +329,7 @@ $id_css=0;
 
 
                                                 <li> @if ($delivery_status == 'pending') <span
+
                                                         class="label label-danger">
 
                                                         {{translate('Pending')}} </span>
@@ -329,16 +337,19 @@ $id_css=0;
                                                     @endif
 
                                                     @if ($delivery_status == 'on_review') <span
+
                                                         class="label label-warning"> {{translate('On review')}} </span>
 
                                                     @endif
 
                                                     @if ($delivery_status == 'on_delivery') <span
+
                                                         class="label label-info"> {{translate('On delivery')}} </span>
 
                                                     @endif
 
                                                     @if ($delivery_status == 'delivered') <span
+
                                                         class=" label label-success"> {{translate('Delivered')}} </span>
 
                                                     @endif
@@ -349,9 +360,9 @@ $id_css=0;
 
                                                 <hr>
 
+                                                
 
-
-
+                                                
 
                                                 <table class="table table-bordered">
 
@@ -417,135 +428,129 @@ $id_css=0;
 
                                                 </table>
 
+                                                
 
-
-                                                <div class="container">
-
-
-
-                                                </div>
-
-                        </div>
+<div class="container">
 
 
 
-                        </ul>
+  </div>
 
-                        @endforeach
-
-                        <hr>
-
-                        </th>
-
-                        <th>{{ route('getUserSendCart', $order->token) }}</th>
+</div>
 
 
 
-                        <th>
+                                            </ul>
 
-                            <table class="sss">
+                                            @endforeach
 
-
-
-
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th>#</th>
-
-                                        <th>{{ translate('Name') }}</th>
-
-                                        <th>{{translate('Quantity')}}</th>
-
-                                        <th>{{translate('Price')}}</th>
-
-                                        <th>{{translate('Tax')}}</th>
-
-
-
-                                    </tr>
-
-                                </thead>
-
-
-
-
-
-                                <tbody>
-
-
-
-                                    @php
-
-                                    $products = \App\Sendcartuser::where('order_id', '=',
-
-                                    $order->id)->get();
-
-                                    @endphp
-
-                                    <ul class="list-group">
-                                        @if (count($products)>0)
-                                        @foreach ($products as $item_countries)
-                                        <li class="list-group-item">الاسم :{{$item_countries->name}}</li>
-
-                                        <li class="list-group-item"> الموبيل:{{$item_countries->pas}}</li>
-
-                                        <li class="list-group-item"> البريد الالكتروني:{{$item_countries->email}}</li>
-
-                                        @endforeach
-                                        @endif
-
-
-
-                                        <li class="list-group-item">
-
-                                <tbody>
-
-                                    @foreach ($products as $index=>$product)
-
-                                    <tr>
-
-                                        <th>{{ $index + 1  }}</th>
-
-                                        <th>
-
-                                            {{ lang($product->product->id,Session::get('locale')) }}
+                                            <hr>
 
                                         </th>
 
-                                        <th>{{ $product->quantity }}</th>
+                                        <th>{{ route('getUserSendCart', $order->token) }}</th>
 
-                                        <th>{{ $product->price }}</th>
 
-                                        <th>{{ $product->tax }}</th>
 
-                                    </tr>
+                                        <th>
 
-                                    @endforeach
-
-                                </tbody>
-
-                                </li>
-
-                                </ul>
+   <table class="sss">
 
 
 
 
 
+                                                    <thead>
+
+                                                        <tr>
+
+                                                            <th>#</th>
+
+                                                            <th>{{ translate('Name') }}</th>
+
+                                                            <th>{{translate('Quantity')}}</th>
+
+                                                            <th>{{translate('Price')}}</th>
+
+                                                            <th>{{translate('Tax')}}</th>
+
+
+
+                                                        </tr>
+
+                                                    </thead>
+
+
+
+
+
+                                                    <tbody>
+
+
+
+                                                        @php
+
+                                                        $products = \App\Sendcartuser::where('order_id', '=',
+
+                                                        $order->id)->get();
+
+                                                        @endphp
+
+                                                        <ul class="list-group">
+
+                                                            <li class="list-group-item">الاسم :{{$products[0]->name}}</li>
+
+                                                            <li class="list-group-item"> الموبيل:{{$products[0]->pas}}</li>
+
+                                                            <li class="list-group-item"> البريد الالكتروني:{{$products[0]->email}}</li>
+
+                                                            <li class="list-group-item">
+
+                                                    <tbody>
+
+                                                        @foreach ($products as $index=>$product)
+
+                                                        <tr>
+
+                                                            <th>{{ $index + 1  }}</th>
+
+                                                            <th>
+
+                                                                {{ lang($product->product->id,Session::get('locale')) }}
+
+                                                            </th>
+
+                                                            <th>{{ $product->quantity }}</th>
+
+                                                            <th>{{ $product->price }}</th>
+
+                                                            <th>{{ $product->tax }}</th>
+
+                                                        </tr>
+
+                                                        @endforeach
+
+                                                    </tbody>
+
+                                                    </li>
+
+                                                    </ul>
 
 
 
 
 
 
-                                <tr>
 
 
 
-                                </tr>
+
+
+                                                    <tr>
+
+
+
+                                                    </tr>
 
 
 
@@ -553,13 +558,13 @@ $id_css=0;
 
                             </table>
 
+                  
 
+                                            <div id="demo{{ $id_css   }}" class="collapse">
 
-                            <div id="demo{{ $id_css   }}" class="collapse">
+                                             
 
-
-
-                            </div>
+                        </div>
 
                         </th>
 
@@ -619,7 +624,7 @@ $id_css=0;
 
     text-align: center;
 
-"> <a href="{{ route('affiliate.getsingleorder', $order->id) }}"> <span class="btn btn-info">
+" > <a href="{{ route('affiliate.getsingleorder', $order->id) }}"> <span class="btn btn-info">
 
                                     <i class="fa fa-eye"></i> </span> </a></th>
 
@@ -699,17 +704,17 @@ $id_css=0;
 
                                 <tr>
 
-
+                                   
 
                                     <th>
 
-                                        {{ lang($counts->name,Session::get('locale')) }}
+                                      {{ lang($counts->name,Session::get('locale')) }}
 
                                     </th>
 
-                                    <th>{{ $counts->id}} </th>
+                                     <th>{{ $counts->id}} </th>
 
-
+                                                                                                  
 
 
 
@@ -750,6 +755,7 @@ $id_css=0;
 
 
 <div class="modal fade" id="affiliate_withdraw_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
     aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered modal-dialog-zoom product-modal" id="modal-size" role="document">
@@ -785,7 +791,9 @@ $id_css=0;
                         <div class="col-md-9">
 
                             <input type="number" class="form-control mb-3" name="amount" min="1"
+
                                 max="{{ Auth::user()->affiliate_user->balance }}" placeholder="{{ translate('Amount')}}"
+
                                 required>
 
                         </div>
@@ -823,6 +831,7 @@ $id_css=0;
 
 
 <script>
+
     $("#print-code").on('click', function () {
 
 
@@ -890,6 +899,7 @@ $id_css=0;
 
 
 <script>
+
     $(document).ready(function() {
 
 
@@ -917,3 +927,4 @@ $id_css=0;
 
 
 @endsection
+
