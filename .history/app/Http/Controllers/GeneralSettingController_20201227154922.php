@@ -16,7 +16,7 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
-        $generalsetting = GeneralSetting::where('lang',Session::get('locale'))->get();
+        $generalsetting = GeneralSetting::first();
         return view("general_settings.index", compact("generalsetting"));
     }
 
@@ -156,7 +156,7 @@ class GeneralSettingController extends Controller
         $generalsetting->twitter = $request->twitter;
         $generalsetting->youtube = $request->youtube;
         $generalsetting->google_plus = $request->google_plus;
-        $generalsetting->lang = $request->google_plus;
+        $generalsetting->google_plus = $request->google_plus;
 
 
         if($generalsetting->save()){

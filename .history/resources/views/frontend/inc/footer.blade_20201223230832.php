@@ -45,11 +45,11 @@
         <div class="container">
             <div class="row cols-xs-space cols-sm-space cols-md-space">
                 @php
-                    $generalsetting = \App\GeneralSetting::where('lang',Session::get('locale'))->get();
+                    $generalsetting = \App\GeneralSetting::first();
                 @endphp
                 <div class="col-lg-5 col-xl-4 text-center text-md-left">
                     <div class="col">
-                        <a href="{{ route('home') }}" class="d-block">
+                        <a href="{{ route('home') }}" class="d-block">  
                             @if($generalsetting->footer_logo != null)
                                 <img loading="lazy"  src="{{ my_asset($generalsetting->footer_logo) }}" alt="{{ env('APP_NAME') }}" height="44">
                             @elseif($generalsetting->logo != null)
@@ -104,7 +104,7 @@
 
                             @foreach (\App\Link::orderBy('id', 'DESC')->where('lang',Session::get('locale'))->get() as $key => $link)
                                 <li>
-
+                                  
                                     <a href="{{ $link->url }}" title="">
                                         {{ $link->name }}
                                     </a>
