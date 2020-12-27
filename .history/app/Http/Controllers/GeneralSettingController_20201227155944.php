@@ -17,7 +17,7 @@ class GeneralSettingController extends Controller
     public function index()
     {
         $generalsetting = GeneralSetting::where('lang',Session::get('locale'))->get();
-        dd($generalsetting);
+        dd($);
         return view("general_settings.index", compact("generalsetting"));
     }
 
