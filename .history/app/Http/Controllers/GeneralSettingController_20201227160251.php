@@ -30,6 +30,7 @@ class GeneralSettingController extends Controller
     //updates the logo and favicons of the system
     public function storeLogo(Request $request)
     {
+        
         $generalsetting = GeneralSetting::first();
 
         if($request->hasFile('logo')){
