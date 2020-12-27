@@ -10,14 +10,14 @@
 
             <!--Horizontal Form-->
             <!--===================================================-->
-            <form class="form-horizontal" action="{{ route('generalsettings.update',$generalsetting['id'] ) }}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{ route('generalsettings.update',$generalsetting ) }}" method="POST" enctype="multipart/form-data">
             	@csrf
                 <input type="hidden" name="_method" value="PATCH">
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="name">{{translate('Site Name')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" id="name" name="name" value="{{ $generalsetting['site_name'] }}" class="form-control" required>
+                            <input type="text" id="name" name="name" value="{{ $generalsetting->site_name }}" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">

@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="name">{{translate('Site Name')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" id="name" name="name" value="{{ $generalsetting['site_name'] }}" class="form-control" required>
+                            <input type="text" id="name" name="name" value="{{ $generalsetting->site_name }}" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
