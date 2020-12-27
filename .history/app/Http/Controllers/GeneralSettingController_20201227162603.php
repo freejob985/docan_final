@@ -146,7 +146,7 @@ class GeneralSettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $generalsetting = GeneralSetting::where('lang',Session::get('locale'))->first();
+        $generalsetting = GeneralSetting::first();
         $generalsetting->site_name = $request->name;
         $generalsetting->address = $request->address;
         $generalsetting->phone = $request->phone;
