@@ -20,7 +20,6 @@ class PolicyController extends Controller
         $policy = Policy::where('name', $request->name)->where('lang',Session::get('locale'))->first();
         $policy->name = $request->name;
         $policy->content = $request->content;
-        $policy->lang = Session::get('locale');
         $policy->save();
         flash(translate($request->name.' updated successfully'));
         return back();
