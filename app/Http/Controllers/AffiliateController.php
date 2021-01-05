@@ -74,7 +74,7 @@ class AffiliateController extends Controller
             return view('affiliate.configs');
     }
 
-s    public function config_store(Request $request){
+    public function config_store(Request $request){
         $form = array();
         $select_types = ['select', 'multi_select', 'radio'];
         $j = 0;
@@ -87,7 +87,7 @@ s    public function config_store(Request $request){
             }
             array_push($form, $item);
         }
-        $affiliate_config = AffiliateConfig::where('type', 'verification_form')->first();
+        $affiliate_config = AffiliateConfig::where('lang',Session::get('locale'))->where('type', 'verification_form')->first();
         $affiliate_config->value = json_encode($form);
         if($affiliate_config->save()){
             flash("Verification form updated successfully")->success();
@@ -186,6 +186,7 @@ s    public function config_store(Request $request){
 
     public function users(){
         $affiliate_users = AffiliateUser::paginate(12);
+ 
         return view('affiliate.users', compact('affiliate_users'));
     }
 
@@ -293,7 +294,9 @@ s    public function config_store(Request $request){
         }
     }
     public function myaffilateorders_admin($id) {
-
+        
+ 
+        
         if(Auth::check()){
 
         $orders = Sendcart::where('sender_id', '=', $id)->orderBy('id', 'desc')->get();
@@ -505,6 +508,37 @@ s    public function config_store(Request $request){
         
                 $orders = Sendcart::where('sender_id', '=', Auth::user()->id)->orderBy('id', 'desc')->get();
                 $productscount = DB::table('sendcarts')->where('sender_id', '=', Auth::user()->id)
+        ->join('orders', 'orders.token', 'sendcarts.token')
+        ->join('order_details', 'orders.id', 'order_details.order_id')
+        ->join('products', 'products.id', 'order_details.product_id')
+         ->select('quantity', 'name', 'orders.created_at')
+         ->select('name', 'orders.created_at', 'products.id', DB::raw("sum(quantity) as count"))
+         ->groupBy('products.id')
+         ->orderBy('id', 'desc')
+        ->get();
+        
+
+        
+                   $pdf = PDF::setOptions([
+                            'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,
+                            'logOutputFile' => storage_path('logs/log.htm'),
+                            'tempDir' => storage_path('logs/'),
+                            'public_path' => 'public/'
+                        ])->loadView('invoices.aff', compact('orders', 'productscount'));
+            $output = $pdf->output();
+            
+    		file_put_contents('public/affiliator/'.'Order#'.$orders[0]->token.'.pdf', $output);
+    		
+
+    }
+    
+    
+        public function makeadminpdf($id) {
+        
+        
+                $orders = Sendcart::where('sender_id', '=', $id)->orderBy('id', 'desc')->get();
+                
+                $productscount = DB::table('sendcarts')->where('sender_id', '=', $id)
         ->join('orders', 'orders.token', 'sendcarts.token')
         ->join('order_details', 'orders.id', 'order_details.order_id')
         ->join('products', 'products.id', 'order_details.product_id')
