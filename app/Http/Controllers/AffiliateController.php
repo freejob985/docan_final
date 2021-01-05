@@ -74,7 +74,7 @@ class AffiliateController extends Controller
             return view('affiliate.configs');
     }
 
-    public function config_store(Request $request){
+s    public function config_store(Request $request){
         $form = array();
         $select_types = ['select', 'multi_select', 'radio'];
         $j = 0;
