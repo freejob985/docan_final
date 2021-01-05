@@ -60,6 +60,54 @@ $id_css=0;
         border: navajowhite;
         margin-bottom: 4%;
     }
+
+
+    @media (max-width: 991px){
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 1px;
+}
+ .card {
+     max-width: 100%;
+ }
+ .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    border-top: 1px solid rgba(243, 243, 243, 0.7);
+    font-size: 0.475rem;
+}
+  .card .btn{
+     max-width: 200px;
+ }
+ .list-group-item {
+    padding: 0.3;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: #818a91;
+    font-size: 0.575rem;
+    background-color: #FFF;
+    margin-bottom: 0;
+}.table td, .table th {
+    font-size: 0.575rem;
+}table.dataTable thead th, table.dataTable thead td {
+    padding: 10px 1px;
+    border-bottom: 1px solid #111;
+}.main-ul li {
+    list-style: none;
+    margin: 5px 0px;
+    display: initial;
+}ul .main-ul{margin:0;padding:0;}
+ .table {
+
+    width: 100%;
+    overflow-x: scroll;
+    max-width: 341px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid red !important;
+    float: right;
+    direction: rtl;
+ }
+
+
+}
 </style>
 
 @section('content')
@@ -267,7 +315,7 @@ $id_css=0;
 
                         <div class="card-body cc">
 
-                            <table class="example table table-sm table-responsive-md mb-0 table-bordered">
+                            <table class="example table table-responsive table-bordered">
 
 
                                 <thead>
@@ -481,7 +529,7 @@ $id_css=0;
 
                                     $products = \App\Sendcartuser::where('order_id', '=',
 
-                                    $order->id)->first();
+                                    $order->id)->take(1)->get();
 
                                     @endphp
 
