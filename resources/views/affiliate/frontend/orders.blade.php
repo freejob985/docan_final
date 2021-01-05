@@ -481,7 +481,7 @@ $id_css=0;
 
                                     $products = \App\Sendcartuser::where('order_id', '=',
 
-                                    $order->id)->get();
+                                    $order->id)->first();
 
                                     @endphp
 
