@@ -529,13 +529,15 @@ table.dataTable tbody th, table.dataTable tbody td {
 
                                     $products = \App\Sendcartuser::where('order_id', '=',
 
-                                    $order->id)->take(1)->get();
+                                    $order->id)->get();
 
                                     @endphp
 
                                     <ul class="list-group">
                                         @if (count($products)>0)
-                                        @foreach ($products as $item_countries)
+                                        @foreach (\App\Sendcartuser::where('order_id', '=',
+
+                                        $order->id)->take(1)->get() as $item_countries)
                                         <li class="list-group-item">الاسم :{{$item_countries->name}}</li>
 
                                         <li class="list-group-item"> الموبيل:{{$item_countries->pas}}</li>
