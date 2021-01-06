@@ -19,29 +19,29 @@ class Language
     public function handle($request, Closure $next)
     {
         
-                $langs = 'en';
+        //         $langs = 'en';
 
-        if (Session::get('locale') == 'en') {
+        // if (Session::get('locale') == 'en') {
 
-            $langs == 'en';
-            session()->put('locale', "en");
+        //     $langs == 'en';
+        //     session()->put('locale', "en");
 
-        } elseif (Session::get('locale') == 'ar') {
+        // } elseif (Session::get('locale') == 'ar') {
 
-            $langs == 'sa';
-            session()->put('locale', "ar");
+        //     $langs == 'sa';
+        //     session()->put('locale', "ar");
 
-        } elseif (Session::get('locale') == 'sa') {
+        // } elseif (Session::get('locale') == 'sa') {
 
-            $langs == 'sa';
-            session()->put('locale', "sa");
+        //     $langs == 'sa';
+        //     session()->put('locale', "sa");
 
-        } else {
+        // } else {
 
-            $langs == 'en';
-            session()->put('locale', "en");
+        //     $langs == 'en';
+        //     session()->put('locale', "en");
 
-        }
+        // }
         
         
         if(Session::has('locale')){
