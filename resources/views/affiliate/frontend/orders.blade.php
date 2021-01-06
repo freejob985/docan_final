@@ -182,6 +182,7 @@ table.dataTable tbody th, table.dataTable tbody td {
             <div class="row">
                 <div class="col-md-12">
                     <div class="card no-border mt-5">
+                        <a class="btn btn-info" href="{{url('data-pdf')}}">Export To PDF</a>
                         <div class="card-body cc">
                             <table class="example table table-responsive table-bordered">
                                 <thead>
