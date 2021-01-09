@@ -564,7 +564,7 @@ class CheckoutController extends Controller
 
         } else {
 
-            return redirect()->route('checkout.send_to_user');
+            return redirect()->route('cart');
         }
 
     }
