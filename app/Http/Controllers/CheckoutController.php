@@ -634,7 +634,7 @@ class CheckoutController extends Controller
 
         $array['subject'] = 'New Order From ' . Auth::user()->name;
 
-        $array['from'] = env('MAIL_USERNAME');
+        $array['from'] = "support@ad-dukkan.com";
         $array['content'] = translate('Hi. A new order has been placed. Please Click The Link To View Your Order Or Just Copy The Link Below.');
         $array['url'] = $request->url;
         $array['email'] = $request->email;
