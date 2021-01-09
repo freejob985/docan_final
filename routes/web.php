@@ -182,7 +182,7 @@ Route::post('/cart/removeFromCart', 'CartController@removeFromCart')->name('cart
 Route::post('/cart/updateQuantity', 'CartController@updateQuantity')->name('cart.updateQuantity');
 
 //Checkout Routes
-Route::group([], function () {
+Route::group(['middleware' => ['checkout']], function () {
 
     Route::get('/checkout', 'CheckoutController@get_shipping_info')->name('checkout.shipping_info');
 
