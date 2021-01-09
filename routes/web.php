@@ -191,6 +191,10 @@ Route::group(['middleware' => ['checkout']], function () {
     Route::any('/checkout/delivery_info', 'CheckoutController@store_shipping_info')->name('checkout.store_shipping_infostore');
     Route::post('/checkout/payment_select', 'CheckoutController@store_delivery_info')->name('checkout.store_delivery_info');
 });
+Route::get('/send_to_user', 'CheckoutController@send_to_user')->name('checkout.send_to_user');
+
+
+
 
 Route::get('/checkout/order-confirmed', 'CheckoutController@order_confirmed')->name('order_confirmed');
 Route::post('/checkout/payment', 'CheckoutController@checkout')->name('payment.checkout');
