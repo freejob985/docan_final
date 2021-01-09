@@ -556,7 +556,7 @@ class CheckoutController extends Controller
 
             }
 
-            Session::forget('cart');
+        //    Session::forget('cart');
 
             flash(translate('Order Generated'))->success();
 
@@ -571,7 +571,7 @@ class CheckoutController extends Controller
 
     public function getUserSendCart(Request $request, $id)
     {
-
+//الدالة الخاصة بالرابط المرسل الي المستخدم
         $order = Sendcart::where('token', '=', $id)->first();
 
         $token = $order->token;
@@ -658,7 +658,7 @@ class CheckoutController extends Controller
 //@dd("Catch errors for script and full tracking ( 2)".$array['email']);
 
         flash(translate('Email Has Been Sent'))->success();
-
+        Session::forget('cart');
         return redirect()->to('https://ad-dukkan.com/');
 
         // return redirect()->back();
@@ -685,6 +685,8 @@ class CheckoutController extends Controller
 
         $url = "https://api.whatsapp.com/send/?phone=" . $request->number . "&text=" . $request->url . "&app_absent=0";
         return redirect()->to($url);
+        Session::forget('cart');
+
     }
 
 }
