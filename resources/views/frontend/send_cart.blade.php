@@ -44,7 +44,9 @@
         </div>
 
 
-                                        <a href="" class="btn btn-styled btn-base-1">{{ translate('SMS')}}</a>
+                                        <a href="" class="btn btn-styled btn-base-1" style="
+                                        display: none;
+                                    " >{{ translate('SMS')}}</a>
                                     </div>
 
 

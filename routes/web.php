@@ -186,7 +186,7 @@ Route::group(['middleware' => ['checkout']], function () {
 
     Route::get('/checkout', 'CheckoutController@get_shipping_info')->name('checkout.shipping_info');
 
-    Route::get('/send_to_user', 'CheckoutController@send_to_user')->name('checkout.send_to_user');
+   // Route::get('/send_to_user', 'CheckoutController@send_to_user')->name('checkout.send_to_user');
 
     Route::any('/checkout/delivery_info', 'CheckoutController@store_shipping_info')->name('checkout.store_shipping_infostore');
     Route::post('/checkout/payment_select', 'CheckoutController@store_delivery_info')->name('checkout.store_delivery_info');
