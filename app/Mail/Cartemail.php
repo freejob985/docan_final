@@ -21,7 +21,7 @@ class Cartemail extends Mailable
 
     public function build()
     {
-        dd($this->array);
+      //  dd($this->array);
         return $this->view($this->array['view'])
         ->from($this->array['from'], env('MAIL_FROM_NAME'))
         ->subject($this->array['subject']);
