@@ -1,7 +1,19 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+<style>
+    .pr-4, .px-4 {
+        padding-right: unset !important;
+    }
 
+    .input-group {
+         width: 100px !important;
+    }
+
+    .table-cart tbody tr td.product-remove a {
+        display: inline;
+    }
+</style>
     <section class="slice-xs sct-color-2 border-bottom">
         <div class="container container-sm">
             <div class="row cols-delimited justify-content-center">
