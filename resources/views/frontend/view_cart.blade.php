@@ -90,8 +90,8 @@
                                         <tr>
                                             <th class="product-image"></th>
                                             <th class="product-name">{{ translate('Product')}}</th>
-                                            <th class="product-price d-none d-lg-table-cell">{{ translate('Price')}}</th>
-                                            <th class="product-quanity d-none d-md-table-cell">{{ translate('Quantity')}}</th>
+                                            <th class="product-price  d-lg-table-cell">{{ translate('Price')}}</th>
+                                            <th class="product-quanity  d-md-table-cell">{{ translate('Quantity')}}</th>
                                             <th class="product-total">{{ translate('Total')}}</th>
                                             <th class="product-remove"></th>
                                         </tr>
@@ -133,11 +133,11 @@
                                                     </span>
                                                 </td>
 
-                                                <td class="product-price d-none d-lg-table-cell">
+                                                <td class="product-price  d-lg-table-cell">
                                                     <span class="pr-3 d-block">{{ single_price($cartItem['price']) }}</span>
                                                 </td>
 
-                                                <td class="product-quantity d-none d-md-table-cell">
+                                                <td class="product-quantity  d-md-table-cell">
                                                     @if($cartItem['digital'] != 1)
                                                         <div class="input-group input-group--style-2 pr-4" style="width: 130px;">
                                                             <span class="input-group-btn">
@@ -186,7 +186,7 @@
 
                                     @if (session()->has('sender_id'))
                                     <div class="col-md-6">
-                                        @if ( DB::table('affiliate_users')->where('user_id', Auth::user()->id)->exists())
+                                        @if ( DB::table('affiliate_users')->where('user_id', Auth::user()->id)->where('status', '=', '1')->exists())
 
 
                                     <a class="btn btn-styled btn-base-2 > <i style="font-size: 20px;" class="fa fa-truck"></i> {{ translate('Send To User')}}</a>
@@ -200,7 +200,7 @@
 
 
 
-                                    @if ( DB::table('affiliate_users')->where('user_id', Auth::user()->id)->exists())
+                                    @if ( DB::table('affiliate_users')->where('user_id', Auth::user()->id)->where('status', '=', '1')->exists())
 
 
                                     <a href="{{ route('checkout.send_to_user') }}" class="btn btn-styled btn-base-2"> <i style="font-size: 20px;" class="fa fa-truck"></i> {{ translate('Send To User')}}</a>
