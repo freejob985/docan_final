@@ -538,6 +538,7 @@ class AffiliateController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
+            
         $pdf = PDF::setOptions([
             'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,
             'logOutputFile' => storage_path('logs/log.htm'),
