@@ -530,7 +530,10 @@ class CheckoutController extends Controller
             }
 
             $total = $subtotal + $tax;
-
+            dd(
+            Order::findOrFail($request->session()->get('order_id'))->grand_total
+            );
+            
             $sendorder = Sendcart::create([
 
                 'sender_id' => Auth::user()->id,
