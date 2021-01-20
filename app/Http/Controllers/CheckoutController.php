@@ -538,7 +538,13 @@ class CheckoutController extends Controller
                 'qr' => $total,
                 'token' => mt_rand(1000000, 9999999),
             ]);
+            dd([
 
+                'sender_id' => Auth::user()->id,
+                'total' => $total,
+                'qr' => $total,
+                'token' => mt_rand(1000000, 9999999),
+            ]);
             foreach (Session::get('cart') as $key => $cartItem) {
                 $request->session()->put('id_send',
                     Sendcartuser::create([
